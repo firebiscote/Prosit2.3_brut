@@ -1,5 +1,7 @@
 #pragma once
 
+#include <iostream>
+
 class Point {
 public:
 	Point();
@@ -12,6 +14,7 @@ protected:
 
 class Point3D : public Point {
 public:
+	Point3D();
 	Point3D(float c1, float c2, float c3);
 	virtual void showCoord() const;
 protected:

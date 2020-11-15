@@ -4,22 +4,26 @@
 #include <vector>
 #include "Point.h"
 
-class Course2D {
+class Course {
 public:
-	Course2D();
+	Course();
+};
+
+class Course2D : public Course {
+public:
 	Course2D(int length);
 	virtual float findDistance() const;
 protected:
 	int c_length;
+	int c_size;
 private:
-	vector<Point*> pointArray;
+	vector<Point*> c_pointArray;
 };
 
 class Course3D : public Course2D {
 public:
-	Course3D();
 	Course3D(int length);
 	virtual float findDistance() const;
 private:
-	vector<Point3D*> pointArray;
+	vector<Point3D*> c_pointArray;
 };
