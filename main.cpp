@@ -6,13 +6,6 @@ using namespace std;
 
 int main() {
 	Point* p1;
-	p1 = new Point(0.0, 0.0);
-	Course* course;
-	course = new Course2D(3);
-	course->addPoint(p1);
-	course->showCourse();
-
-	/*Point* p1;
 	Point* p2;
 	Point* p3;
 	Course* course;
@@ -36,5 +29,5 @@ int main() {
 	course->message();
 	p1 = new Point(0.0, 0.0);
 	p2 = new Point3D(1.0, 1.0, 1.0);
-	(p1 = p2)->showCoord();*/
+	(p1 = p2)->showCoord();
 }
