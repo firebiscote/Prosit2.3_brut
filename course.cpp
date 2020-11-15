@@ -5,34 +5,56 @@ using namespace std;
 Course::Course() {
 }
 
-Course2D::Course2D(int length) : c_length(length), c_size(0) {
-	c_pointArray.resize(length);
+Course2D::Course2D() {
+}
+
+Course2D::Course2D(int length) {
+	_pointArray.resize(length);
 }
 
 void Course2D::addPoint(Point* point) {
-	c_pointArray[c_size] = point;
-	c_pointArray[c_size]->showCoord();
-	c_size++;
+	for (int i = 0; i < _pointArray.size(); i++) {
+		if (_pointArray[i] == NULL) {
+			_pointArray[i] = point;
+			break;
+		}
+	}
+}
+
+void Course2D::addPoint(Point3D* point) {
 }
 
 float Course2D::findDistance() const {
-	return 2.82843;
+	float distance = 0;
+	for (int i = 0; i < _pointArray.size() - 1; i++) {
+		distance += sqrt(pow(_pointArray[i + 1]->get_c1() - _pointArray[i]->get_c1(), 2) + pow(_pointArray[i + 1]->get_c2() - _pointArray[i]->get_c2(), 2));
+	}
+	return distance;
 }
 
 void Course2D::message() const {
 	cout << "2D course calculation" << endl;
 }
 
-Course3D::Course3D(int length) : Course2D(length) {
+Course3D::Course3D(int length) {
+	_pointArray.resize(length);
 }
 
 void Course3D::addPoint(Point3D* point) {
-	c_pointArray[c_size] = point;
-	c_size++;
+	for (int i = 0; i < _pointArray.size(); i++) {
+		if (_pointArray[i] == NULL) {
+			_pointArray[i] = point;
+			break;
+		}
+	}
 }
 
 float Course3D::findDistance() const {
-	return 3.4641;
+	float distance = 0;
+	for (int i = 0; i < _pointArray.size() - 1; i++) {
+		distance += sqrt(pow(_pointArray[i + 1]->get_c1() - _pointArray[i]->get_c1(), 2) + pow(_pointArray[i + 1]->get_c2() - _pointArray[i]->get_c2(), 2) + pow(_pointArray[i + 1]->get_c3() - _pointArray[i]->get_c3(), 2));
+	}
+	return distance;
 }
 
 void Course3D::message() const {

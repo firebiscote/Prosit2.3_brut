@@ -22,9 +22,9 @@ int main() {
 	p2 = new Point3D(1.0, 1.0, 1.0);
 	p3 = new Point3D(2.0, 2.0, 2.0);
 	course = new Course3D(3);
-	course->addPoint(p1);
-	course->addPoint(p2);
-	course->addPoint(p3);
+	course->addPoint((Point3D*)p1);
+	course->addPoint((Point3D*)p2);
+	course->addPoint((Point3D*)p3);
 	cout << course->findDistance() << endl;
 	course->message();
 	p1 = new Point(0.0, 0.0);
